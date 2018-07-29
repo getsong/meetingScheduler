@@ -4,9 +4,10 @@
         <th ng-repeat="day in days">{{ day }}</th>
     </thead>
     <tbody>
-        <tr ng-repeat="(index, time) in startTimeArr">
-            <th>{{ time | date: "HH:mm" }} - {{ endTimeArr[index] | date: "HH:mm" }}</th>
-            <td ng-repeat="day in days"></td>
+        <tr ng-repeat="(timeIndex, time) in startTimeArr">
+            <th>{{ time | date: "HH:mm" }} - {{ endTimeArr[timeIndex] | date: "HH:mm" }}</th>
+            <td ng-repeat="(dayIndex, day) in days" ng-mousedown="mouseDown(dayIndex, timeIndex)" 
+                ng-mouseenter="mouseEnter(dayIndex, timeIndex)" ng-mouseup="mouseUp()"></td>
         </tr>
     </tbody>
 </table>
