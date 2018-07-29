@@ -7,7 +7,8 @@
         <tr ng-repeat="(timeIndex, time) in startTimeArr">
             <th>{{ time | date: "HH:mm" }} - {{ endTimeArr[timeIndex] | date: "HH:mm" }}</th>
             <td ng-repeat="(dayIndex, day) in days" ng-mousedown="mouseDown(dayIndex, timeIndex)" 
-                ng-mouseenter="mouseEnter(dayIndex, timeIndex)" ng-mouseup="mouseUp()"></td>
+                ng-mouseenter="mouseEnter(dayIndex, timeIndex)" ng-mouseup="mouseUp()"
+                ng-class="{'purple': busyState[dayIndex][timeIndex]}"></td>
         </tr>
     </tbody>
 </table>
