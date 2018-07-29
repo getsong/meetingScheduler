@@ -4,6 +4,9 @@
         <th ng-repeat="day in days">{{ day }}</th>
     </thead>
     <tbody>
-        <th>a</th>
+        <tr ng-repeat="(index, time) in startTimeArr">
+            <th>{{ time | date: "HH:mm" }} - {{ endTimeArr[index] | date: "HH:mm" }}</th>
+            <td ng-repeat="day in days"></td>
+        </tr>
     </tbody>
 </table>
