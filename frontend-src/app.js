@@ -8,6 +8,10 @@
             templateUrl: "main.html",
             controller: "MainController"
         })
+        .when("/schedule", {
+            templateUrl: "schedule.html",
+            controller: "ScheduleController"
+        })
         .otherwise({ redirectTo: "/main" });
     });
 

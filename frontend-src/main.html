@@ -1,14 +1,21 @@
+<input type="search" required placeholder="Event name" ng-model="eventName" />
 <table>
     <thead>
-        <th>Time</th>
-        <th ng-repeat="day in days">{{ day }}</th>
+        <th>Sun</th>
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+        <th>Thu</th>
+        <th>Fri</th>
+        <th>Sat</th>
     </thead>
     <tbody>
-        <tr class="noselect" ng-repeat="(timeIndex, time) in startTimeArr">
-            <th class="noselect">{{ time | date: "HH:mm" }} - {{ endTimeArr[timeIndex] | date: "HH:mm" }}</th>
-            <td class="noselect" ng-repeat="(dayIndex, day) in days" ng-mousedown="mouseDown(dayIndex, timeIndex)" 
-                ng-mouseenter="mouseEnter(dayIndex, timeIndex)" ng-mouseup="mouseUp()"
-                ng-class="{'purple': busyState[dayIndex][timeIndex]}"></td>
-        </tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
     </tbody>
 </table>

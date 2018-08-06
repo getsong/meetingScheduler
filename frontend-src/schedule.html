@@ -1,0 +1,14 @@
+<table>
+    <thead>
+        <th>Time</th>
+        <th ng-repeat="day in days">{{ day }}</th>
+    </thead>
+    <tbody>
+        <tr class="noselect" ng-repeat="(timeIndex, time) in startTimeArr">
+            <th class="noselect">{{ time | date: "HH:mm" }} - {{ endTimeArr[timeIndex] | date: "HH:mm" }}</th>
+            <td class="noselect" ng-repeat="(dayIndex, day) in days" ng-mousedown="mouseDown(dayIndex, timeIndex)" 
+                ng-mouseenter="mouseEnter(dayIndex, timeIndex)" ng-mouseup="mouseUp()"
+                ng-class="{'purple': busyState[dayIndex][timeIndex]}"></td>
+        </tr>
+    </tbody>
+</table>
