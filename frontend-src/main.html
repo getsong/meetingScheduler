@@ -1,8 +1,8 @@
+New Event Name:
 <input type="search" required placeholder="Event name" ng-model="eventName" />
-<br>
-<table>
+<table id="event">
     <thead>
-        <th class="noselect" ng-repeat="day in days">{{ day.substring(0,3) }}</th>
+        <th class="noselect eventDay" ng-repeat="day in days">{{ day.substring(0,3) }}</th>
     </thead>
     <tbody>
         <td class="noselect eventSelection" ng-repeat="(dayIndex, day) in days"></td>

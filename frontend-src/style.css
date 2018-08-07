@@ -22,3 +22,11 @@ table, th, td {
     width: 40px;
 }
 
+table#event {
+    border: 0px;
+    margin-top: 10px;
+}
+
+.eventDay {
+    border: 0px;
+}
