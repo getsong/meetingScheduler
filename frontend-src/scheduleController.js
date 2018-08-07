@@ -2,7 +2,7 @@
 
     var app = angular.module("meetingScheduler");
 
-    var schedulerController = function ($scope, $log) {
+    var schedulerController = function ($scope) {
         $scope.days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         $scope.startTime = new Date(0, 0, 0, 8);
         $scope.endTime = new Date(0, 0, 0, 17);
@@ -46,6 +46,6 @@
         };
     };
 
-    app.controller("SchedulerController", schedulerController);
+    app.controller("ScheduleController", schedulerController);
 
 })();
