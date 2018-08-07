@@ -1,10 +1,11 @@
 New Event Name:
 <input type="search" required placeholder="Event name" ng-model="eventName" />
 <table id="event">
-    <thead>
+    <thead class="noselect">
         <th class="noselect eventDay" ng-repeat="day in days">{{ day.substring(0,3) }}</th>
     </thead>
     <tbody>
-        <td class="noselect eventSelection" ng-repeat="(dayIndex, day) in days"></td>
+        <td class="noselect eventSelection" ng-repeat="(dayIndex, day) in days" ng-mousedown="mouseDown(dayIndex)" ng-mouseenter="mouseEnter(dayIndex)"
+            ng-mouseup="mouseUp()" ng-class="{'purple': selectedDays[dayIndex]}"></td>
     </tbody>
 </table>
