@@ -1,21 +1,10 @@
 <input type="search" required placeholder="Event name" ng-model="eventName" />
+<br>
 <table>
     <thead>
-        <th>Sun</th>
-        <th>Mon</th>
-        <th>Tue</th>
-        <th>Wed</th>
-        <th>Thu</th>
-        <th>Fri</th>
-        <th>Sat</th>
+        <th class="noselect" ng-repeat="day in days">{{ day }}</th>
     </thead>
     <tbody>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td class="noselect eventSelection" ng-repeat="(dayIndex, day) in days"></td>
     </tbody>
 </table>
