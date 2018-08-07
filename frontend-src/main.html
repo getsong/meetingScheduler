@@ -2,7 +2,7 @@
 <br>
 <table>
     <thead>
-        <th class="noselect" ng-repeat="day in days">{{ day }}</th>
+        <th class="noselect" ng-repeat="day in days">{{ day.substring(0,3) }}</th>
     </thead>
     <tbody>
         <td class="noselect eventSelection" ng-repeat="(dayIndex, day) in days"></td>
