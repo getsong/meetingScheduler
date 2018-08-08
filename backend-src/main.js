@@ -5,6 +5,12 @@ const parser = require('body-parser');
 
 app.use(parser.json());
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
