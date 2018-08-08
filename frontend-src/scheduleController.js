@@ -3,13 +3,13 @@
     var app = angular.module("meetingScheduler");
 
     var schedulerController = function ($scope) {
+        $scope.loginName;
+        $scope.loginPassword;
+        $scope.isLoginStage = true;
         $scope.days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         $scope.startTime = new Date(0, 0, 0, 8);
         $scope.endTime = new Date(0, 0, 0, 18);
         $scope.startTimeArr = [];
-        $scope.loginName;
-        $scope.loginPassword;
-        $scope.isLoginStage = true;
         for (var time = $scope.startTime; time < $scope.endTime; time = new Date(time.getTime() + 30 * 60 * 1000)) {
             $scope.startTimeArr.push(time);
         }
@@ -18,7 +18,6 @@
         $scope.isMouseDown = false;
         $scope.dayIndex = 0;
         $scope.timeIndex = 0;
-
         $scope.busyState = [];
         for (let dayIndex in $scope.days) {
             dayState = []
@@ -35,8 +34,6 @@
         };
 
         $scope.mouseEnter = function (dayIndex, timeIndex) {
-            // $scope.dayIndex = dayIndex;
-            // $scope.timeIndex = timeIndex;
             console.log("mouseenter", dayIndex, timeIndex);
             if ($scope.isMouseDown) {
                 $scope.busyState[dayIndex][timeIndex] = !$scope.busyState[dayIndex][timeIndex];
