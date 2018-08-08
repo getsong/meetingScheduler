@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 });
 
 // create event
-let eventInsertion = `INSERT INTO events(EVENT_NAME,SUNDAY,MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY) VALUES ?  `;
+let eventInsertion = `INSERT INTO events(EVENT_NAME,EVENT_PASSWORD,SUNDAY,MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY) VALUES ?  `;
 
 app.post('/event', (req, res) => {
   console.log(req.body);
