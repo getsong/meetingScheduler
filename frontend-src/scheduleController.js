@@ -3,8 +3,8 @@
     var app = angular.module("meetingScheduler");
 
     var schedulerController = function ($scope) {
-        $scope.loginName;
-        $scope.loginPassword;
+        $scope.userName;
+        $scope.userPassword;
         $scope.isLoginStage = true;
         $scope.days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         $scope.startTime = new Date(0, 0, 0, 8);
