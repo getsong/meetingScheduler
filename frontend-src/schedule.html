@@ -1,14 +1,25 @@
-<table>
-    <thead>
-        <th>Time</th>
-        <th ng-repeat="day in days">{{ day }}</th>
-    </thead>
-    <tbody>
-        <tr class="noselect" ng-repeat="(timeIndex, time) in startTimeArr">
-            <th class="noselect">{{ time | date: "HH:mm" }} - {{ endTimeArr[timeIndex] | date: "HH:mm" }}</th>
-            <td class="noselect" ng-repeat="(dayIndex, day) in days" ng-mousedown="mouseDown(dayIndex, timeIndex)" 
-                ng-mouseenter="mouseEnter(dayIndex, timeIndex)" ng-mouseup="mouseUp()"
-                ng-class="{'purple': busyState[dayIndex][timeIndex]}"></td>
-        </tr>
-    </tbody>
-</table>
+<div ng-show="isLoginStage">
+    <h3>Log in:</h3>
+    <span>Name:</span>
+    <input type="search" required placeholder="Enter your name" ng-model="loginName" />
+    <br>
+    <span>Password:</span>
+    <input type="password" ng-model="loginPassword" />
+    <br>
+    <input type="submit" ng-click="login()" />
+</div>
+<div ng-hide="isLoginStage">
+    <table>
+        <thead>
+            <th>Time</th>
+            <th ng-repeat="day in days">{{ day }}</th>
+        </thead>
+        <tbody>
+            <tr class="noselect" ng-repeat="(timeIndex, time) in startTimeArr">
+                <th class="noselect">{{ time | date: "HH:mm" }} - {{ endTimeArr[timeIndex] | date: "HH:mm" }}</th>
+                <td class="noselect" ng-repeat="(dayIndex, day) in days" ng-mousedown="mouseDown(dayIndex, timeIndex)" ng-mouseenter="mouseEnter(dayIndex, timeIndex)"
+                    ng-mouseup="mouseUp()" ng-class="{'purple': busyState[dayIndex][timeIndex]}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

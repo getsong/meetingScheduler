@@ -7,6 +7,9 @@
         $scope.startTime = new Date(0, 0, 0, 8);
         $scope.endTime = new Date(0, 0, 0, 18);
         $scope.startTimeArr = [];
+        $scope.loginName;
+        $scope.loginPassword;
+        $scope.isLoginStage = true;
         for (var time = $scope.startTime; time < $scope.endTime; time = new Date(time.getTime() + 30 * 60 * 1000)) {
             $scope.startTimeArr.push(time);
         }
@@ -44,6 +47,10 @@
             $scope.isMouseDown = false;
             console.log($scope.busyState);
         };
+
+        $scope.login = function () {
+            $scope.isLoginStage = false;
+        }
     };
 
     app.controller("ScheduleController", schedulerController);
