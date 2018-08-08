@@ -8,7 +8,7 @@
             templateUrl: "main.html",
             controller: "MainController"
         })
-        .when("/schedule", {
+        .when("/schedule/:eventId", {
             templateUrl: "schedule.html",
             controller: "ScheduleController"
         })

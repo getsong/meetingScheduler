@@ -2,10 +2,12 @@
 
     var app = angular.module("meetingScheduler");
 
-    var schedulerController = function ($scope) {
+    var schedulerController = function ($scope, $routeParams) {
         $scope.userName;
         $scope.userPassword;
         $scope.isLoginStage = true;
+        $scope.eventId = $routeParams.eventId;
+        
         $scope.days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         $scope.startTime = new Date(0, 0, 0, 8);
         $scope.endTime = new Date(0, 0, 0, 18);
