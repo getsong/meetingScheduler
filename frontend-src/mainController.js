@@ -4,6 +4,7 @@
 
     var mainController = function ($scope, $http) {
         $scope.eventName;
+        $scope.eventPassword;
         $scope.days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         $scope.selectedDays = []
         $scope.isMouseDown = false;
@@ -29,6 +30,7 @@
 
         $scope.createEvent = function () {
             var data = $scope.selectedDays.slice();
+            data.unshift($scope.eventPassword);
             data.unshift($scope.eventName);
             formattedData = []
             formattedData.push(data)
