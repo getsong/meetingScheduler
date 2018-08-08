@@ -2,7 +2,7 @@
 
     var app = angular.module("meetingScheduler");
 
-    var mainController = function ($scope) {
+    var mainController = function ($scope, $http) {
         $scope.eventName;
         $scope.days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         $scope.selectedDays = []
@@ -27,9 +27,13 @@
             console.log($scope.selectedDays);
         };
 
-        // $scope.createEvent = function () {
-        //     $http.post()
-        // }
+        $scope.createEvent = function () {
+            var data = $scope.selectedDays.slice();
+            data.unshift($scope.eventName);
+            formattedData = []
+            formattedData.push(data)
+            $http.post("http://localhost:8001/event", formattedData);
+        }
     };
 
     app.controller("MainController", mainController);
