@@ -37,7 +37,7 @@ app.post('/event', (req, res) => {
     }
     // get inserted rows
     console.log('Row inserted:' + results.affectedRows);
-    res.send('Row inserted:' + results.affectedRows);
+    res.send(results.insertId.toString());
   });
 });
 
