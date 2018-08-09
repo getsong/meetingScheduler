@@ -2,7 +2,7 @@
 
     var app = angular.module("meetingScheduler");
 
-    var mainController = function ($scope, $http) {
+    var mainController = function ($scope, $http, $window) {
         $scope.eventName;
         $scope.eventPassword;
         $scope.days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -34,7 +34,10 @@
             data.unshift($scope.eventName);
             formattedData = []
             formattedData.push(data)
-            $http.post("http://localhost:8001/event", formattedData);
+            $http.post("http://localhost:8001/event", formattedData)
+                .then(function (response) {
+                    $window.location.href = "#/schedule/" + response.data;
+                });
         }
     };
 
