@@ -41,6 +41,25 @@ app.post('/event', (req, res) => {
   });
 });
 
+// create participant
+let participantInsertion = `INSERT INTO participants(ParticipantName, ParticipantPassword, EventId) VALUES ?  `;
+
+app.post('/participant', (req, res) => {
+  console.log(req.body);
+
+  // execute the insert statment
+  connection.query(participantInsertion, [req.body], (err, results) => {
+    if (err) {
+      console.error(err.message);
+      res.send(err.message);
+      return;
+    }
+    // get inserted rows
+    console.log('Row inserted:' + results.affectedRows);
+    res.send(results.insertId.toString());
+  });
+});
+
 // create record
 let recordInsertion = `INSERT INTO daily_records(date,0t)  VALUES ?  `;
 let todos = [
