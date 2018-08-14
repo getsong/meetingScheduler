@@ -19,9 +19,17 @@ var connection = mysql.createConnection({
 });
 
 // get event
+let eventQuery = `SELECT EventName,Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday FROM events WHERE EventId = ?`;
 app.get('/event/:eventId', (req, res) => {
-  console.log(req.params.eventId);
-  res.send('Hello World!')
+  connection.query(eventQuery, req.params.eventId, (err, results) => {
+    if (err) {
+      console.error(err.message);
+      res.send(err.message);
+      return;
+    }
+    console.log(results[0].Sunday.readInt8());
+    res.send(results);
+  })
 });
 
 // create event
