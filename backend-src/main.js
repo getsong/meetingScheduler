@@ -18,7 +18,9 @@ var connection = mysql.createConnection({
   database: 'meetingscheduler'
 });
 
-app.get('/', (req, res) => {
+// get event
+app.get('/event/:eventId', (req, res) => {
+  console.log(req.params.eventId);
   res.send('Hello World!')
 });
 
