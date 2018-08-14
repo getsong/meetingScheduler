@@ -8,7 +8,19 @@
         $scope.isLoginStage = true;
         $scope.eventId = $routeParams.eventId;
 
-        $scope.days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        $http.get("http://localhost:8001/event/" + $scope.eventId)
+            .then(function (response) {
+                $scope.days = []
+                let data = response.data[0];
+                for (let day of days) {
+                    if (data[day]["data"][0] == 1) {
+                        $scope.days.push(day);
+                    }
+                }
+                console.log($scope.days)
+            });
+
         $scope.startTime = new Date(0, 0, 0, 8);
         $scope.endTime = new Date(0, 0, 0, 18);
         $scope.startTimeArr = [];
