@@ -18,8 +18,6 @@
         $scope.endTimeArr = $scope.startTimeArr.slice(1);
         $scope.endTimeArr.push($scope.endTime);
         $scope.isMouseDown = false;
-        $scope.dayIndex = 0;
-        $scope.timeIndex = 0;
         $scope.busyState = [];
         for (let dayIndex in $scope.days) {
             dayState = []
