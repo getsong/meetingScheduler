@@ -5,7 +5,7 @@ const parser = require('body-parser');
 
 app.use(parser.json());
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
@@ -26,8 +26,6 @@ app.get('/', (req, res) => {
 let eventInsertion = `INSERT INTO events(EventName,EventPassword,Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday) VALUES ?  `;
 
 app.post('/event', (req, res) => {
-  console.log(req.body);
-
   // execute the insert statment
   connection.query(eventInsertion, [req.body], (err, results) => {
     if (err) {
@@ -45,8 +43,6 @@ app.post('/event', (req, res) => {
 let participantInsertion = `INSERT INTO participants(ParticipantName, ParticipantPassword, EventId) VALUES ?  `;
 
 app.post('/participant', (req, res) => {
-  console.log(req.body);
-
   // execute the insert statment
   connection.query(participantInsertion, [req.body], (err, results) => {
     if (err) {
