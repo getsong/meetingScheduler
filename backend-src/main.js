@@ -58,18 +58,12 @@ app.post('/participant', (req, res) => {
   });
 });
 
-// create record
-let recordInsertion = `INSERT INTO daily_records(date,0t)  VALUES ?  `;
-let todos = [
-  ['2018-05-08', false],
-  ['2018-05-09', true]
-];
+// create schedule
+let scheduleInsertion = `INSERT INTO dailyschedules(ParticipantId,DayOfWeek,0t,1t,2t,3t,4t,5t,6t,7t,8t,9t,10t,11t,12t,13t,14t,15t,16t,17t,18t,19t) VALUES ?  `;
 
-app.post('/record', (req, res) => {
-  console.log(req.body);
-
+app.post('/schedule', (req, res) => {
   // execute the insert statment
-  connection.query(recordInsertion, [req.body], (err, results) => {
+  connection.query(scheduleInsertion, [req.body], (err, results) => {
     if (err) {
       console.error(err.message);
       res.send("error!");
@@ -77,7 +71,7 @@ app.post('/record', (req, res) => {
     }
     // get inserted rows
     console.log('Row inserted:' + results.affectedRows);
-    res.send('Row inserted:' + results.affectedRows);
+    res.send(results.insertId.toString());
   });
 });
 
