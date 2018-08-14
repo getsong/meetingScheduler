@@ -2,7 +2,7 @@
 
     var app = angular.module("meetingScheduler");
 
-    var schedulerController = function ($scope, $routeParams) {
+    var schedulerController = function ($scope, $routeParams, $http) {
         $scope.participantName;
         $scope.participantPassword;
         $scope.isLoginStage = true;
@@ -48,6 +48,14 @@
         };
 
         $scope.login = function () {
+            var data = [
+                [$scope.participantName, $scope.participantPassword, $scope.eventId]
+            ];
+            $http.post("http://localhost:8001/participant", data)
+                .then(function (response) {
+                    $scope.participantId = response.data;
+                    console.log(response.data);
+                });
             $scope.isLoginStage = false;
         }
     };
